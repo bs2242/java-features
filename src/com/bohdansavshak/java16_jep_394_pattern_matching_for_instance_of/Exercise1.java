@@ -1,4 +1,4 @@
-package com.bohdansavshak.java16_jep_394_patternMatchingForInstanceOf;
+package com.bohdansavshak.java16_jep_394_pattern_matching_for_instance_of;
 
 public class Exercise1 {
 

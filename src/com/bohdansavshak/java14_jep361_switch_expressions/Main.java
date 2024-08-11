@@ -7,7 +7,6 @@ public class Main {
 
     void main() {
 
-
 //        -- default switch statement with fallthrough and break
         MyEnum m = MyEnum.C;
         switch (m) {
@@ -89,7 +88,6 @@ public class Main {
             }
             case C: yield  "C";
         };
-
 
 /*
         switch statement uses break;

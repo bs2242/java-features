@@ -1,4 +1,4 @@
-package com.bohdansavshak.java17_jep409_SealedClasses;
+package com.bohdansavshak.java17_jep409_sealed_classes;
 
 public class Main {
     /*

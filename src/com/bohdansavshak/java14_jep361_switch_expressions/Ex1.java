@@ -24,5 +24,50 @@ public class Ex1 {
                 yield "B and C";
             }
         };
+
+
+        // two expressions
+        var res = switch (a) {
+            case A -> {
+                yield "hello";
+            }
+            case B -> {
+                yield "sldkfj";
+            }
+            default -> "C";
+        };
+
+        var res1 = switch (a) {
+            case A: {
+                yield "hello";
+            }
+            case B: {
+                yield "sldkfj";
+            }
+            case C: {yield "C";}
+        };
+
+        // two statements
+        // statements aren't exhaustive as expressions
+        switch (a) {
+            case A: {
+                System.out.println("hello");
+                break;
+            }
+            case B: {
+                System.out.println("B");
+                break;
+            }
+        }
+
+        switch (a) {
+            case A -> {
+                System.out.println();
+            }
+            case B -> {
+                System.out.println("sdflkj");
+            }
+        }
+
     }
 }
