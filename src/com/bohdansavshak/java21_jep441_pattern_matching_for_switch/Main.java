@@ -3,7 +3,6 @@ package com.bohdansavshak.java21_jep441_pattern_matching_for_switch;
 public class Main {
     public static void main(String[] args) {
         /*
-
         before java 21
         switch works only on char, byte, short and int(autoboxed versions too) + enum and string
         work on constants only.
