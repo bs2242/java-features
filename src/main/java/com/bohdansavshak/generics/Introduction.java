@@ -15,10 +15,12 @@ public class Introduction {
     // generics added.
     // So you code is written without generics in mind but internal implementation of
     // library now works with generics.
-    // So in order to support exists code base this must exists. For example Collections.getList().
+    // So in order to support exists code base this must exists. For example
+    // Collections.getList().
     // Imaginary method that was existing in java 4 bug since 5 it now returns generic List.
     // So if you have used this method it means that you expect just
-    // List but since java 5 you would get parameterized type List<Something> which will break you
+    // List but since java 5 you would get parameterized type List<Something> which will break
+    // you
     // code
     // if this feature of assigning of parameterized type to raw type wouldn't be supported.
 
@@ -175,7 +177,8 @@ public class Introduction {
     public static void main(String[] args) {
       BoundedTypeParamExample<Integer> boundedTypeOfInteger = new BoundedTypeParamExample<>();
       boundedTypeOfInteger.set(Integer.valueOf(10));
-      //            boundedTypeOfInteger.inspect("Str"); // this throws compile time error because
+      //            boundedTypeOfInteger.inspect("Str"); // this throws compile time error
+      // because
       // inspect can only
       //            accept Number like arguments
       boundedTypeOfInteger.inspect(Double.valueOf(10.1));
@@ -244,11 +247,14 @@ public class Introduction {
     public static void main(String[] args) {
       BoxAsGenericType<Number> numberBoxAsGenericType = new BoxAsGenericType<>();
       numberBoxAsGenericType.set(Integer.valueOf(10));
-      // Integer extends Number. So in every place where Number is expected you can pass Integer.
+      // Integer extends Number. So in every place where Number is expected you can pass
+      // Integer.
 
-      // But when BoxAsGenericType<Number> is expected you can't pass BoxAsGenericType<Integer>
+      // But when BoxAsGenericType<Number> is expected you can't pass
+      // BoxAsGenericType<Integer>
       // because both have superclass Object and there is no direct link between them.
-      // also because List<E> extends from Collection<E> it means when Collection<E> is expected you
+      // also because List<E> extends from Collection<E> it means when Collection<E> is
+      // expected you
       // can pass in List<E>
 
     }
@@ -258,7 +264,8 @@ public class Introduction {
     // extends from List<String>.
     // Also ListWithPayload<String, String> also extends from List<String>
     // Also ListWithPayload<String, Number> also extends from List<String>
-    // But not ListWithPayload<Integer, String>. Because it would be extending from List<Integer>
+    // But not ListWithPayload<Integer, String>. Because it would be extending from
+    // List<Integer>
     public interface ListWithPayload<E, P> extends List<E> {
       void setPayload(int index, P val);
     }

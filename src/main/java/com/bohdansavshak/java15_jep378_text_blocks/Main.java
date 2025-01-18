@@ -40,8 +40,7 @@ public class Main {
                         </html>
                         """;
 
-    String emptyString =
-        """
+    String emptyString = """
                 """;
 
     //        String thisWillNotCompile = """ """;

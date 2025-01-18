@@ -25,7 +25,8 @@ public class Main {
         };
     System.out.println(str);
 
-    //        -- scope of variables in switch statement are shared. It means there is only one scope
+    //        -- scope of variables in switch statement are shared. It means there is only one
+    // scope
     // of switch statement
     //        and that's it.
     //        with switch expression you have multiple scopes hence you can define same variable
@@ -36,8 +37,8 @@ public class Main {
         String temp = "sdf"; // The scope of 'temp' continues to the }
         break;
       case C:
-        String temp2 =
-            "can't name it temp because temp is already in scope"; // Can't call this variable
+        String temp2 = "can't name it temp because temp is already in scope"; // Can't call this
+        // variable
         // 'temp'
         break;
       default:

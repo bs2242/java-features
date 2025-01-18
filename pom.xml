@@ -55,7 +55,10 @@
                 <version>2.43.0</version>
                 <configuration>
                     <java>
-                        <googleJavaFormat/>
+                        <googleJavaFormat>
+                            <style>GOOGLE</style>                       <!-- AOSP/GOOGLE -->
+                            <groupArtifact>com.google.googlejavaformat:google-java-format</groupArtifact>
+                        </googleJavaFormat>
                     </java>
                 </configuration>
             </plugin>

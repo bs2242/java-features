@@ -116,9 +116,9 @@ public class Main {
       case Coin.HEADS -> {
         System.out.println("Heads");
       }
-      //            case TAILS -> {         // Error - TAILS must be qualified
-      //                System.out.println("Tails");
-      //            }
+        //            case TAILS -> {         // Error - TAILS must be qualified
+        //                System.out.println("Tails");
+        //            }
       default -> {
         System.out.println("Some currency");
       }
@@ -149,8 +149,9 @@ public class Main {
   static void error(Object obj) {
     switch (obj) {
       case CharSequence cs -> System.out.println("A sequence of length " + cs.length());
-      //            case String s ->    // Error - pattern is dominated by previous pattern
-      //                    System.out.println("A string: " + s);
+        //            case String s ->    // Error - pattern is dominated by previous
+        // pattern
+        //                    System.out.println("A string: " + s);
       default -> {
         break;
       }
@@ -211,8 +212,7 @@ public class Main {
    */
   static void testScope1(Object obj) {
     switch (obj) {
-      case Character c
-      when c.charValue() == 7:
+      case Character c when c.charValue() == 7:
         System.out.println("Ding!");
         break;
       default:
@@ -265,8 +265,8 @@ public class Main {
           System.out.print("Tab ");
         }
         System.out.println("character");
-      //            case Integer i:                 // Compile-time error
-      //                System.out.println("An integer " + i);
+        //            case Integer i:                 // Compile-time error
+        //                System.out.println("An integer " + i);
       default:
         break;
     }
@@ -345,8 +345,7 @@ public class Main {
   // As of Java 21
   static void example(Object obj) {
     switch (obj) {
-      case R r
-      when (r.i / 0 == 1):
+      case R r when (r.i / 0 == 1):
         System.out.println("It's an R!");
       default:
         break;
@@ -432,7 +431,7 @@ public class Main {
   class AnotherExample {
     static int testGenericSealedExhaustive(I<Integer> i) {
       return switch (i) {
-        // Exhaustive as no A case possible!
+          // Exhaustive as no A case possible!
         case B<Integer> bi -> 42;
       };
     }
@@ -454,7 +453,7 @@ public class Main {
   class A1 {
     static void switchStatementExhaustive(S s) {
       switch (s) { // Error - not exhaustive;
-        // missing clause for permitted class B!
+          // missing clause for permitted class B!
         case B b:
           {
             System.out.println("B");
