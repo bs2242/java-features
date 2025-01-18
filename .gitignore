@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 /.idea
 javaFeatures.iml
+/target
 
 ### Eclipse ###
 .apt_generated
