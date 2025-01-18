@@ -1,7 +1,7 @@
 package com.bohdansavshak.bobocode;
 
 class PackageClass {
-    void hello() {
-        System.out.println("hello");
-    }
+  void hello() {
+    System.out.println("hello");
+  }
 }
