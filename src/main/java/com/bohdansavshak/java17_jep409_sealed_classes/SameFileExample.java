@@ -4,21 +4,20 @@ public sealed class SameFileExample
 // The permits clause has been omitted
 // as its permitted classes have been
 // defined in the same file.
-{
-}
+{}
 
 final class Circle extends SameFileExample {
-    float radius;
+  float radius;
 }
 
 non-sealed class Square extends SameFileExample {
-    float side;
+  float side;
 }
 
 sealed class Rectangle extends SameFileExample {
-    float length, width;
+  float length, width;
 }
 
 final class FilledRectangle extends Rectangle {
-    int red, green, blue;
+  int red, green, blue;
 }

@@ -1,25 +1,23 @@
 package com.bohdansavshak.bobocode;
 
 interface I {
-    default void m() {
-    }
+  default void m() {}
 }
 
 interface I2 {
-    default void m() {
-    }
+  default void m() {}
 }
 
 public class DiamondProblemWithDefaultMethods {
-    public I hello() {
-        System.out.println("Hello");
-        return new A();
-    }
+  public I hello() {
+    System.out.println("Hello");
+    return new A();
+  }
 }
 
 class A implements I, I2 {
-    @Override
-    public void m() {
-        I2.super.m();
-    }
+  @Override
+  public void m() {
+    I2.super.m();
+  }
 }

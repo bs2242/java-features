@@ -119,49 +119,45 @@ public class Main {
 
        */
 
-    public static void main(String[] args) {
-        Point<Double> doublePoint = new Point<>(1.0, 2.0);
-        doublePoint.privateHello(); // why this is allowed?
-        doublePoint.publicHello();
+  public static void main(String[] args) {
+    Point<Double> doublePoint = new Point<>(1.0, 2.0);
+    doublePoint.privateHello(); // why this is allowed?
+    doublePoint.publicHello();
+  }
+
+  record Point<T>(T t1, T t2) {
+    private void privateHello() {
+      System.out.println(t1.toString() + t2.toString());
     }
 
-    record Point<T>(T t1, T t2) {
-        private void privateHello() {
-            System.out.println(t1.toString() + t2.toString());
-        }
-
-        public void publicHello() {
-            privateHello();
-        }
+    public void publicHello() {
+      privateHello();
     }
+  }
 
-    record Box(int i1, int i2) {
-        Box(int i1, int i2) {
-            this.i1 = i1;
-            this.i2 = i2;
-        }
+  record Box(int i1, int i2) {
+    Box(int i1, int i2) {
+      this.i1 = i1;
+      this.i2 = i2;
     }
+  }
 
-    class A {
-        public static int i = 20;
+  class A {
+    public static int i = 20;
 
-        public static void hello() {
-        }
+    public static void hello() {}
 
-        enum MyEnum {
-            ONE,
-            TWO
-        } // implicitly static
+    enum MyEnum {
+      ONE,
+      TWO
+    } // implicitly static
 
-        // interfaces.
+    // interfaces.
 
-        interface I {
-        } // implicitly static
+    interface I {} // implicitly static
 
-        record B() {
-        } // now inner classes allows static nested classes including record enum and
+    record B() {} // now inner classes allows static nested classes including record enum and
 
-        static class C {
-        }
-    }
+    static class C {}
+  }
 }

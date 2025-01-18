@@ -2,7 +2,7 @@ package com.bohdansavshak.java16_jep395_records;
 
 public class MyExplanation {
 
-    // static nested classes in scope of records jep 395
+  // static nested classes in scope of records jep 395
   /*
 
 
@@ -31,31 +31,24 @@ public class MyExplanation {
 
       */
 
-    record A() {
+  record A() {}
+
+  static class B {
+    public void v() {
+      enum C4 {} // this is implicitly static.
+      interface C3 {} // this is implicitly static
+
+      record C1() {} // this is implicitly static
+
+      class C2 {} // this is implicitly non-static
     }
 
-    static class B {
-        public void v() {
-            enum C4 {} // this is implicitly static.
-            interface C3 {
-            } // this is implicitly static
+    enum E {} // this is implicitly static
 
-            record C1() {
-            } // this is implicitly static
+    interface I {} // this is implicitly static
 
-            class C2 {
-            } // this is implicitly non-static
-        }
+    record C(int i) {} // this is implicitly static
 
-        enum E {} // this is implicitly static
-
-        interface I {
-        } // this is implicitly static
-
-        record C(int i) {
-        } // this is implicitly static
-
-        static class B1 {
-        } // can be static or can be non-static. But implicitly it's non-static
-    }
+    static class B1 {} // can be static or can be non-static. But implicitly it's non-static
+  }
 }

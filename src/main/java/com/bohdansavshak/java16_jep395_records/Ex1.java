@@ -1,14 +1,14 @@
 package com.bohdansavshak.java16_jep395_records;
 
 public class Ex1 {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     /*
     Records - transparent carriers for immutable data
     Or special kind of class that helps you model plain data aggregates with less ceremony
 
 
      */
-        record A(int i) {
+    record A(int i) {
       /*
       you have here state -> api
       also hashCode, equals, toString
@@ -37,6 +37,6 @@ public class Ex1 {
       or in other classes or in interfaces or even in enums. Or even in inner classes.
 
        */
-        }
     }
+  }
 }

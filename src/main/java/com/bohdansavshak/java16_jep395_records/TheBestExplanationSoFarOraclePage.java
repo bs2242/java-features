@@ -2,7 +2,7 @@ package com.bohdansavshak.java16_jep395_records;
 
 public class TheBestExplanationSoFarOraclePage {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     /*
           Immutable data carriers
           Record classes, which are a special kind of class, help to model plain data aggregates with less ceremony
@@ -58,74 +58,72 @@ public class TheBestExplanationSoFarOraclePage {
               Look at MyExample
 
            */
+  }
+
+  record Rectangle(double length, double width) {}
+
+  record RectangleWithCanonicalConstructor(double length, double width) {
+    public RectangleWithCanonicalConstructor(double length, double width) {
+      if (length <= 0 || width <= 0) {
+        throw new java.lang.IllegalArgumentException(
+            String.format("Invalid dimensions: %f, %f", length, width));
+      }
+      this.length = length;
+      this.width = width;
+    }
+  }
+
+  record RectangleWithCompactConstructor(double length, double width) {
+    public RectangleWithCompactConstructor {
+      if (length <= 0 || width <= 0) {
+        throw new java.lang.IllegalArgumentException(
+            String.format("Invalid dimensions: %f, %f", length, width));
+        // it will assign length param to this.length implicitly the same for width.
+      }
+    }
+  }
+
+  record Pair<T extends Number>(T x, T y) {}
+
+  record RectangleWithCustomConstructor(double length, double width) {
+    // These constructors must invoke the record's canonical constructor.
+    // Or other custom constructor but in the end it should be canonical constructor.
+    public RectangleWithCustomConstructor(Pair<Double> corner) {
+      this(corner.x().doubleValue(), corner.y().doubleValue());
+    }
+  }
+
+  record RectangleWithStaticExample(double length, double width) {
+
+    // Static field
+    static double goldenRatio;
+
+    // Static initializer
+    static {
+      goldenRatio = (1 + Math.sqrt(5)) / 2;
     }
 
-    record Rectangle(double length, double width) {
+    // Static method
+    public static Rectangle createGoldenRectangle(double width) {
+      return new Rectangle(width, width * goldenRatio);
+    }
+  }
+
+  record RectangleWithNestedRecord(double length, double width) {
+
+    // Public instance method
+    public RectangleWithNestedRecord getRotatedRectangleBoundingBox(double angle) {
+      RotationAngle ra = new RotationAngle(angle);
+      double x = Math.abs(length * Math.cos(ra.angle())) + Math.abs(width * Math.sin(ra.angle()));
+      double y = Math.abs(length * Math.sin(ra.angle())) + Math.abs(width * Math.cos(ra.angle()));
+      return new RectangleWithNestedRecord(x, y);
     }
 
-    record RectangleWithCanonicalConstructor(double length, double width) {
-        public RectangleWithCanonicalConstructor(double length, double width) {
-            if (length <= 0 || width <= 0) {
-                throw new java.lang.IllegalArgumentException(
-                        String.format("Invalid dimensions: %f, %f", length, width));
-            }
-            this.length = length;
-            this.width = width;
-        }
+    // Nested record class
+    record RotationAngle(double angle) {
+      public RotationAngle {
+        angle = Math.toRadians(angle);
+      }
     }
-
-    record RectangleWithCompactConstructor(double length, double width) {
-        public RectangleWithCompactConstructor {
-            if (length <= 0 || width <= 0) {
-                throw new java.lang.IllegalArgumentException(
-                        String.format("Invalid dimensions: %f, %f", length, width));
-                // it will assign length param to this.length implicitly the same for width.
-            }
-        }
-    }
-
-    record Pair<T extends Number>(T x, T y) {
-    }
-
-    record RectangleWithCustomConstructor(double length, double width) {
-        // These constructors must invoke the record's canonical constructor.
-        // Or other custom constructor but in the end it should be canonical constructor.
-        public RectangleWithCustomConstructor(Pair<Double> corner) {
-            this(corner.x().doubleValue(), corner.y().doubleValue());
-        }
-    }
-
-    record RectangleWithStaticExample(double length, double width) {
-
-        // Static field
-        static double goldenRatio;
-
-        // Static initializer
-        static {
-            goldenRatio = (1 + Math.sqrt(5)) / 2;
-        }
-
-        // Static method
-        public static Rectangle createGoldenRectangle(double width) {
-            return new Rectangle(width, width * goldenRatio);
-        }
-    }
-
-    record RectangleWithNestedRecord(double length, double width) {
-
-        // Public instance method
-        public RectangleWithNestedRecord getRotatedRectangleBoundingBox(double angle) {
-            RotationAngle ra = new RotationAngle(angle);
-            double x = Math.abs(length * Math.cos(ra.angle())) + Math.abs(width * Math.sin(ra.angle()));
-            double y = Math.abs(length * Math.sin(ra.angle())) + Math.abs(width * Math.cos(ra.angle()));
-            return new RectangleWithNestedRecord(x, y);
-        }
-
-        // Nested record class
-        record RotationAngle(double angle) {
-            public RotationAngle {
-                angle = Math.toRadians(angle);
-            }
-        }
-    }
+  }
 }

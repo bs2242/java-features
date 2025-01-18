@@ -17,20 +17,15 @@ public class Main {
 
    */
 
-    public sealed class Shape permits Circle, Square, Rectangle {
-    }
+  public sealed class Shape permits Circle, Square, Rectangle {}
 
-    public final class Circle extends Shape {
-    }
+  public final class Circle extends Shape {}
 
-    public non-sealed class Square extends Shape {
-    }
+  public non-sealed class Square extends Shape {}
 
-    public sealed class Rectangle extends Shape permits FilledRectangle {
-    }
+  public sealed class Rectangle extends Shape permits FilledRectangle {}
 
-    public final class FilledRectangle extends Rectangle {
-    }
+  public final class FilledRectangle extends Rectangle {}
 
   /*
   constrains

@@ -1,48 +1,48 @@
 package com.bohdansavshak.java14_jep361_switch_expressions;
 
 public class Main {
-    void main() {
+  void main() {
 
-        //        -- default switch statement with fallthrough and break
-        MyEnum m = MyEnum.C;
+    //        -- default switch statement with fallthrough and break
+    MyEnum m = MyEnum.C;
+    switch (m) {
+      case A:
+        System.out.println("A");
+        break;
+      case B:
+        System.out.println("B");
+        break;
+      default:
+        System.out.println("default");
+        break;
+    }
+
+    //        switch expression
+    var str =
         switch (m) {
-            case A:
-                System.out.println("A");
-                break;
-            case B:
-                System.out.println("B");
-                break;
-            default:
-                System.out.println("default");
-                break;
-        }
+          case A, B -> "A and B";
+          case C -> "Only C";
+        };
+    System.out.println(str);
 
-        //        switch expression
-        var str =
-                switch (m) {
-                    case A, B -> "A and B";
-                    case C -> "Only C";
-                };
-        System.out.println(str);
-
-        //        -- scope of variables in switch statement are shared. It means there is only one scope
-        // of switch statement
-        //        and that's it.
-        //        with switch expression you have multiple scopes hence you can define same variable
-        // names inside each of them.
-        switch (m) {
-            case A:
-            case B:
-                String temp = "sdf"; // The scope of 'temp' continues to the }
-                break;
-            case C:
-                String temp2 =
-                        "can't name it temp because temp is already in scope"; // Can't call this variable
-                // 'temp'
-                break;
-            default:
-                String temp3 = "same as temp2"; // Can't call this variable 'temp'
-        }
+    //        -- scope of variables in switch statement are shared. It means there is only one scope
+    // of switch statement
+    //        and that's it.
+    //        with switch expression you have multiple scopes hence you can define same variable
+    // names inside each of them.
+    switch (m) {
+      case A:
+      case B:
+        String temp = "sdf"; // The scope of 'temp' continues to the }
+        break;
+      case C:
+        String temp2 =
+            "can't name it temp because temp is already in scope"; // Can't call this variable
+        // 'temp'
+        break;
+      default:
+        String temp3 = "same as temp2"; // Can't call this variable 'temp'
+    }
 
     /*
     very often switch expression is used as an expression anyway.
@@ -64,32 +64,34 @@ public class Main {
     }
     */
 
-        var res =
-                switch (m) {
-                    case A -> {
-                        System.out.println("A");
-                        yield "A";
-                    }
-                    case B -> {
-                        System.out.println("B");
-                        yield "B";
-                    }
-                    case C -> "C";
-                };
+    var res =
+        switch (m) {
+          case A -> {
+            System.out.println("A");
+            yield "A";
+          }
+          case B -> {
+            System.out.println("B");
+            yield "B";
+          }
+          case C -> "C";
+        };
 
-        var res1 =
-                switch (m) {
-                    case A: {
-                        System.out.println("A");
-                        yield "A";
-                    }
-                    case B: {
-                        System.out.println("B");
-                        yield "B";
-                    }
-                    case C:
-                        yield "C";
-                };
+    var res1 =
+        switch (m) {
+          case A:
+            {
+              System.out.println("A");
+              yield "A";
+            }
+          case B:
+            {
+              System.out.println("B");
+              yield "B";
+            }
+          case C:
+            yield "C";
+        };
 
     /*
     switch statement uses break;
@@ -104,11 +106,11 @@ public class Main {
 
      */
 
-    }
+  }
 
-    enum MyEnum {
-        A,
-        B,
-        C
-    }
+  enum MyEnum {
+    A,
+    B,
+    C
+  }
 }
