@@ -1,4 +1,2 @@
-Run next command to correctly show git blame after java google format.
+Run setup-git-hooks.sh
 -
-git config blame.ignoreRevsFile .git-blame-ignore-revs
-
