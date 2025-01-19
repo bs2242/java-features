@@ -6,7 +6,7 @@ public class Exercise1 {
     String str = "my string";
     Object obj = str;
     if (obj instanceof String s) {
-      System.out.println(s);
+      System.out.println(s + "str");
     }
 
     /*
