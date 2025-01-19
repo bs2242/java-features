@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Marker {
 
-  String value() default "This is default value";
+    String value() default "This is default value";
 }

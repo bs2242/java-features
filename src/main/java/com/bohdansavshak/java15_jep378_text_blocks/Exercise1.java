@@ -2,26 +2,26 @@ package com.bohdansavshak.java15_jep378_text_blocks;
 
 public class Exercise1 {
 
-  public static void main(String[] args) {
-    String str1 = """
+    public static void main(String[] args) {
+        String str1 = """
                 asldfkj
                 """;
 
-    String str2 = """
+        String str2 = """
                  asdlfkj
                 """;
 
-    String str3 = """
+        String str3 = """
                 asdflkj\s
                 asdf
                 """;
 
-    String str4 = """
+        String str4 = """
                 asdlkfj\
                 asdflkj
                 """;
 
-    String str5 = """
+        String str5 = """
                 """;
-  }
+    }
 }
