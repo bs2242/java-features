@@ -11,12 +11,12 @@ cat > .git/hooks/pre-commit <<EOL
 
 # Run spotless:check before committing
 echo "Running Spotless check..."
-./mvnw spotless:check
+./mvnw spring-javaformat:validate
 
 # Check if Spotless check failed
 if [ \$? -ne 0 ]; then
   echo "Spotless check failed. Please format your code before committing."
-  echo "run './mvnw spotless:apply'"
+  echo "run './mvnw spring-javaformat:apply'"
   echo "or install 'Spotless Applier' and press 'CTLR + SHIFT + ALT + ;' This will run './mvnw spotless:apply'"
   exit 1
 fi
