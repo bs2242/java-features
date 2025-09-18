@@ -13,7 +13,7 @@ public class Ex2 {
 
 	record C(int i) {
 		public C { // compact constructor
-			i = i;
+			i = +i;
 		}
 
 		public C(A a) { // custom constructor
